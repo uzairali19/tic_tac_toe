@@ -1,1 +1,2 @@
-puts 'Hello World!'
+require_relative "../lib/board"
+require_relative "../lib/player"
