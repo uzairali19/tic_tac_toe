@@ -9,29 +9,29 @@ end
 
 puts "Welcome to Ruby's Tic-Tac-Toe!"
 puts
-puts "Enter Player 1 Name:"
+puts 'Enter Player 1 Name:'
 player1 = gets.chomp
 if player1.empty?
-  puts "Name field cannot be empty"
+  puts 'Name field cannot be empty'
   player1 = gets.chomp
 elsif player1.length < 3
-  puts "Name cannot be less than 3 letters"
+  puts 'Name cannot be less than 3 letters'
   player1 = gets.chomp
 elsif player1.to_i.to_s.eql? player1
-  puts "Only text is allowed"
+  puts 'Only text is allowed'
   player1 = gets.chomp
 end
 puts
-puts "Enter Player 2 Name:"
+puts 'Enter Player 2 Name:'
 player2 = gets.chomp
 if player2.empty?
-  puts "Name field cannot be empty"
+  puts 'Name field cannot be empty'
   player2 = gets.chomp
 elsif player2.length < 3
-  puts "Name cannot be less than 3 letters"
+  puts 'Name cannot be less than 3 letters'
   player2 = gets.chomp
 elsif player2.to_i.to_s.eql? player2
-  puts "Only text is allowed"
+  puts 'Only text is allowed'
   player2 = gets.chomp
 end
 puts
@@ -50,23 +50,23 @@ puts board_layout = " +---+---+---+
  +---+---+---+"
 
 puts "It's #{player1}'s turn"
-puts "Please select an available number from the board"
+puts 'Please select an available number from the board'
 puts
 num = gets.chomp.to_i
 puts
 until board.include?(num)
-  puts "invalid move. Please enter a number from 1-9"
+  puts 'invalid move. Please enter a number from 1-9'
   num = gets.chomp.to_i
 end
 
 puts board_layout
 puts "It's #{player2}'s turn"
-puts "Please select an available number from the board"
+puts 'Please select an available number from the board'
 puts
 second_num = gets.chomp.to_i
 puts
 until board.include?(second_num)
-  puts "invalid move. Please enter a number from 1-9"
+  puts 'invalid move. Please enter a number from 1-9'
   second_num = gets.chomp.to_i
 end
 
