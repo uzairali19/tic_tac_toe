@@ -1,1 +1,1 @@
-puts "This is board.rb, the main logic file for tic tac toe"
+puts 'This is board.rb, the main logic file for tic tac toe'
