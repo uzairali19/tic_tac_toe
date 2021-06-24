@@ -1,4 +1,4 @@
-class Game_Board
+class GameBoard
   attr_reader :board
 
   def initialize
@@ -15,7 +15,7 @@ class Game_Board
  +---+---+---+"
   end
 
-  def move(index, user_marker = "X")
+  def move(index, user_marker = 'X')
     @board[index] = user_marker
   end
 
@@ -35,14 +35,14 @@ class Game_Board
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [6, 4, 2],
+    [6, 4, 2]
   ].freeze
 end
 
-display_layout = Game_Board.new
+display_layout = GameBoard.new
 
 display_layout.board_layout
 index = gets.to_i - 1
-display_layout.move(index, "O")
+display_layout.move(index, 'O')
 display_layout.board_layout
-display_layout.position_taken(index, "O")
+display_layout.position_taken(index, 'O')
