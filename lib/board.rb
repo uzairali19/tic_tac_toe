@@ -19,6 +19,14 @@ class GameBoard
     @board[index] = user_marker
   end
 
+  def position_taken(index, user_marker)
+    if @board[index] == user_marker
+      puts true
+    elsif @board[index] != user_marker
+      puts false
+    end
+  end
+
   WINS = [
     [0, 1, 2],
     [3, 4, 5],
@@ -27,6 +35,6 @@ class GameBoard
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [6, 4, 2]
+    [6, 4, 2],
   ].freeze
 end
