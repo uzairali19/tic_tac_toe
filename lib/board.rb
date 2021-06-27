@@ -15,16 +15,8 @@ class GameBoard
  +---+---+---+"
   end
 
-  def move(index, user_marker = 'X')
+  def move(index, user_marker)
     @board[index] = user_marker
-  end
-
-  def position_taken(index, user_marker)
-    if @board[index] == user_marker
-      puts true
-    elsif @board[index] != user_marker
-      puts false
-    end
   end
 
   WINS = [
@@ -38,11 +30,3 @@ class GameBoard
     [6, 4, 2]
   ].freeze
 end
-
-display_layout = GameBoard.new
-
-display_layout.board_layout
-index = gets.to_i - 1
-display_layout.move(index, 'O')
-display_layout.board_layout
-display_layout.position_taken(index, 'O')
