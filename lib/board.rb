@@ -32,17 +32,16 @@ class GameBoard
   end
 
   def turn_count
-    @board.count { |token| token == "X" || token == "O" }
+    @board.count { |token| %w[X O].include?(token) }
   end
 
   def current_player
     num_turns = turn_count
-    if num_turns % 2 == 0
-      player = "X"
+    if num_turns.even?
+      'X'
     else
-      player = "O"
+      'O'
     end
-    return player
   end
 
   WINS = [
@@ -53,6 +52,6 @@ class GameBoard
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [6, 4, 2],
+    [6, 4, 2]
   ].freeze
 end
