@@ -27,6 +27,24 @@ class GameBoard
     end
   end
 
+  def valid_move?(index)
+    index.between?(0, 8) && !position_taken?(index)
+  end
+
+  def turn_count
+    @board.count { |token| token == "X" || token == "O" }
+  end
+
+  def current_player
+    num_turns = turn_count
+    if num_turns % 2 == 0
+      player = "X"
+    else
+      player = "O"
+    end
+    return player
+  end
+
   WINS = [
     [0, 1, 2],
     [3, 4, 5],
@@ -35,6 +53,6 @@ class GameBoard
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [6, 4, 2]
+    [6, 4, 2],
   ].freeze
 end
