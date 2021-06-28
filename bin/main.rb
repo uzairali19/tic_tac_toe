@@ -35,7 +35,7 @@ puts "Let's start!"
 
 game = GameBoard.new
 
-game.board_layout
+puts game.board_layout
 
 puts "#{player1} starts the game!"
 
@@ -52,7 +52,7 @@ while game.over? == false
   index = game.input_to_index(user_input)
   if game.valid_move?(index)
     game.move(index, player_token)
-    game.board_layout
+    puts game.board_layout
     if game.won?
       puts "Congratulations #{game.winner(player1, player2)}!"
     elsif game.draw?

@@ -6,7 +6,7 @@ class GameBoard
   end
 
   def board_layout
-    puts " +---+---+---+
+    " +---+---+---+
  | #{board[0]} | #{board[1]} | #{board[2]} |
  +---+---+---+
  | #{board[3]} | #{board[4]} | #{board[5]} |
