@@ -1,11 +1,5 @@
-class Player
-  attr_accessor :player1, :player2
-
-  def initialize
-    @player1 = :player1
-    @player2 = :player2
-  end
-end
+require_relative '../lib/players'
+require_relative '../lib/board'
 
 puts "Welcome to Ruby's Tic-Tac-Toe!"
 puts
@@ -39,47 +33,32 @@ puts "#{player1} will play with X and #{player2} will play with O"
 puts
 puts "Let's start!"
 
-board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+game = GameBoard.new
 
-puts board_layout = " +---+---+---+
- | #{board[0]} | #{board[1]} | #{board[2]} |
- +---+---+---+
- | #{board[3]} | #{board[4]} | #{board[5]} |
- +---+---+---+
- | #{board[6]} | #{board[7]} | #{board[8]} |
- +---+---+---+"
+puts game.board_layout
 
-puts "It's #{player1}'s turn"
-puts 'Please select an available number from the board'
-puts
-num = gets.chomp.to_i
-puts
-until board.include?(num)
-  puts 'invalid move. Please enter a number from 1-9'
-  num = gets.chomp.to_i
-end
+puts "#{player1} starts the game!"
 
-puts board_layout
-puts "It's #{player2}'s turn"
-puts 'Please select an available number from the board'
-puts
-second_num = gets.chomp.to_i
-puts
-until board.include?(second_num)
-  puts 'invalid move. Please enter a number from 1-9'
-  second_num = gets.chomp.to_i
-end
-
-i = 0
-while i <= 9
-  puts board_layout
-  number = gets.chomp.to_i
-  if [1, 2, 3].include? number
-    puts "Game Over! \n The winner is #{player1}"
-  elsif [4, 5, 6].include? number
-    puts "Game Over! \n The winner is #{player2}"
-  else
-    puts "It's tie! \n Game over"
+while game.over? == false
+  player_token = game.current_player
+  case player_token
+  when 'X'
+    puts "It's #{player1}'s turn"
+  when 'O'
+    puts "It's #{player2}'s turn"
   end
-  i += 1
+  puts 'Please choose a number 1-9:'
+  user_input = gets.chomp.to_i
+  index = game.input_to_index(user_input)
+  if game.valid_move?(index)
+    game.move(index, player_token)
+    puts game.board_layout
+    if game.won?
+      puts "Congratulations #{game.winner(player1, player2)}!"
+    elsif game.draw?
+      puts 'Game Draw! Good Luck Next Time'
+    end
+  elsif game.valid_move?(index) == false
+    puts 'Invalid move. The cell should not be filled and the number can be only between 1-9'
+  end
 end
