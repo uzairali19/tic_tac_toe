@@ -85,4 +85,15 @@ class GameBoard
   def over?
     won? || draw?
   end
+
+  def winner(player1, player2)
+    index = won?
+    if index == false
+      nil
+    elsif @board[index[0]] == 'X'
+      "#{player1} is the winner"
+    else
+      "#{player2} is the winner"
+    end
+  end
 end
