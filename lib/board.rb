@@ -15,6 +15,10 @@ class GameBoard
  +---+---+---+"
   end
 
+  def input_to_index(user_input)
+    user_input.to_i - 1
+  end
+
   def move(index, user_marker)
     @board[index] = user_marker
   end
@@ -54,23 +58,12 @@ class GameBoard
     [0, 4, 8],
     [6, 4, 2]
   ].freeze
-  # rubocop:disable Metrics/CyclomaticComplexity
+
   def won?
-    WINS.each do |combo|
-      index0 = combo[0]
-      index1 = combo[1]
-      index2 = combo[2]
-
-      position1 = @board[index0]
-      position2 = @board[index1]
-      position3 = @board[index2]
-      (return combo if position1 == 'X' && position2 == 'X' && position3 == 'X')
-      (return combo if position1 == 'O' && position2 == 'O' && position3 == 'O')
+    WINS.detect do |index|
+      @board[index[0]] == @board[index[1]] && @board[index[1]] == @board[index[2]]
     end
-    false
   end
-
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def full?
     @board.all? do |index|
