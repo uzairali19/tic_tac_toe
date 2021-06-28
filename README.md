@@ -15,6 +15,10 @@ A player can play a perfect game of tic-tac-toe (to win or at least draw) if, ea
 - Empty corner: The player plays in a corner square.
 - Empty side: The player plays in a middle square on any of the 4 sides.
 
+## Demo
+
+![Demo](https://cdn.filestackcontent.com/bPdQkJMORGm38xwdVxTp)
+
 ## Technologies Used
 
 - Ruby
