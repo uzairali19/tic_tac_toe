@@ -4,7 +4,7 @@ Tic-tac-toe, noughts and crosses, is a paper-and-pencil game for two players, X 
 
 ## Strategy
 
-A player can play a perfect game of tic-tac-toe (to win or at least draw) if, each time it is their turn to play, they choose the first available move from the following list, as used in Newell and Simon's 1972 tic-tac-toe program.[16]
+A player can play a perfect game of tic-tac-toe (to win or at least draw) if, each time it is their turn to play, they choose the first available move from the following list, as used in Newell and Simon's 1972 tic-tac-toe program.
 
 - Win: If the player has two in a row, they can place a third to get three in a row.
 - Block: If the opponent has two in a row, the player must play the third themselves to block the opponent.
@@ -32,9 +32,18 @@ A player can play a perfect game of tic-tac-toe (to win or at least draw) if, ea
 
 ## Getting Started
 
-To get a local copy of this project follow the steps below:
+To play the game, please setup the project from the description below. Once you are done:
+
+1. Type the name of 1st Player
+2. Type the name of 2nd Player
+   (Notice first player always get's 'X' and second player gets 'O', So, feel free to switch!)
+3. Try to create a winning combination
+4. Both players take turns, think of a strategy.
+5. Once you complete and the game `Draws`. Restart and try again.
 
 ### Setup Local
+
+To get a local copy of this project follow the steps below:
 
 Use `git clone https://github.com/uzairali19/tic_tac_toe.git` to clone the branch directly to your machine
 
@@ -49,8 +58,7 @@ Use `git clone https://github.com/uzairali19/tic_tac_toe.git` to clone the branc
 
 - Navigate the project, you can open it with VScode or any other code editor of choice
 - run the code by opening up your terminal and typing:
-- `cd bin`
-- `ruby main.rb`
+- `ruby bin/main.rb`
 - Happy coding!
 
 ## 🤝 Contributing
