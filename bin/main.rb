@@ -40,18 +40,25 @@ game.board_layout
 puts "#{player1} starts the game!"
 
 while game.over? == false
+  player_token = game.current_player
+  case player_token
+  when 'X'
+    puts "It's #{player1}'s turn"
+  when 'O'
+    puts "It's #{player2}'s turn"
+  end
   puts 'Please choose a number 1-9:'
-  user_input = gets.chomp
+  user_input = gets.chomp.to_i
   index = game.input_to_index(user_input)
-  if valid_move?(index)
-    player_token = current_player
-    move(index, player_token)
-    board_layout
-  elsif won?
-    puts "Congratulations #{winner}!"
-  elsif draw?
-    puts 'Game Draw! Good Luck Next Time'
+  if game.valid_move?(index)
+    game.move(index, player_token)
+    game.board_layout
+    if game.won?
+      puts "Congratulations #{game.winner(player1, player2)}!"
+    elsif game.draw?
+      puts 'Game Draw! Good Luck Next Time'
+    end
+  elsif game.valid_move?(index) == false
+    puts 'Invalid move. The cell should not be filled and the number can be only between 1-9'
   end
 end
-
-# game.play

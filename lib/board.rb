@@ -23,12 +23,8 @@ class GameBoard
     @board[index] = user_marker
   end
 
-  def position_taken(index, user_marker)
-    if @board[index] == user_marker
-      puts true
-    elsif @board[index] != user_marker
-      puts false
-    end
+  def position_taken?(index)
+    @board[index] == 'X' || @board[index] == 'O'
   end
 
   def valid_move?(index)
@@ -60,8 +56,8 @@ class GameBoard
   ].freeze
 
   def won?
-    WINS.detect do |index|
-      @board[index[0]] == @board[index[1]] && @board[index[1]] == @board[index[2]]
+    WINS.detect do |i|
+      @board[i[0]] == @board[i[1]] && @board[i[1]] == @board[i[2]]
     end
   end
 
