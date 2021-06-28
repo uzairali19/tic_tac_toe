@@ -77,4 +77,8 @@ class GameBoard
       %w[X O].include?(index)
     end
   end
+
+  def draw?
+    !won? && full?
+  end
 end
