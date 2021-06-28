@@ -71,4 +71,10 @@ class GameBoard
   end
 
   # rubocop:enable Metrics/CyclomaticComplexity
+
+  def full?
+    @board.all? do |index|
+      %w[X O].include?(index)
+    end
+  end
 end
