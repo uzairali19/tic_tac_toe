@@ -2,14 +2,16 @@ require 'board'
 
 # rubocop:disable Lint/UselessAssignment
 describe 'Game' do
-  g = GameBoard.new
-  describe 'Initialization' do
+  subject(:g) { GameBoard.new }
+
+  describe 'Initialize' do
     it 'Initializes the game sequence' do
       board = g.board
       expect(board).to eq([1, 2, 3, 4, 5, 6, 7, 8, 9])
     end
   end
-  describe 'User Input' do
+
+  describe 'input_to_index' do
     it 'gets user input and converts it into Index' do
       input_to_index = g.input_to_index(1)
       expect(input_to_index).to eq(0)
@@ -23,6 +25,7 @@ describe 'Game' do
       expect(input_to_index).to eq(-1)
     end
   end
+
   describe 'Marker Replacer' do
     it 'Replaces the index variable with user marker' do
       move = g.move(1, 'X')
@@ -30,6 +33,7 @@ describe 'Game' do
       expect(board).to eq('X')
     end
   end
+
   describe 'Position Taken' do
     it 'Checks if postion on board is taken' do
       move = g.move(1, 'O')
@@ -37,6 +41,7 @@ describe 'Game' do
       expect(position_taken).to be_truthy if move == g.move(1, 'O')
     end
   end
+
   describe 'Valid Move' do
     it 'Checks if the move is valid' do
       index = 1
@@ -50,10 +55,16 @@ describe 'Game' do
       end
     end
   end
-  describe 'Current Player Count' do
+
+  describe 'Current Player' do
     it 'Gets the player number' do
       current_player = g.current_player
-      expect(current_player).to eq('O' || 'X')
+      num_turns = g.turn_count
+      if num_turns.even?
+        expect(current_player).to eq('X')
+      else
+        expect(current_player).to eq('O')
+      end
     end
   end
 end
