@@ -61,6 +61,16 @@ Use `git clone https://github.com/uzairali19/tic_tac_toe.git` to clone the branc
 - `ruby bin/main.rb`
 - Happy coding!
 
+### Using Rspec to test
+
+1. Run `bundle install`.
+2. Run `Rake`.
+3. See the spec log on the console to check the results.
+
+#### Example
+
+![Display](./spec_screenshot.png)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
